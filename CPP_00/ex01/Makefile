@@ -5,21 +5,32 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = ./PhoneBook.cpp Contact.cpp main.cpp
 
+OBJDIR = objs
 OBJ = $(SRC:.cpp=.o)
 
-all: $(NAME)
+GREEN = \033[1;32m
+RESET = \033[0m
 
-$(NAME): $(OBJ)
-	$(CC) $(CPPFLAGS) -o $(NAME) $(OBJ)
+all: $(OBJDIR) $(NAME)
 
-%.o: %.cpp
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
+$(NAME): $(addprefix $(OBJDIR)/, $(OBJ))
+	$(CC) $(CPPFLAGS) -o $(NAME) $(addprefix $(OBJDIR)/, $(OBJ))
+	@echo "$(GREEN)PhoneBook is Ready!$(RESET)"
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	@rm -rf $(OBJDIR)
+	@echo "$(GREEN)Clean done!$(RESET)"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(GREEN)Full clean done!$(RESET)"
 
 re: fclean all
 
