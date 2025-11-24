@@ -1,10 +1,12 @@
-#include <iostream>
-#include <string>
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+# include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact contacts[8];
+		Contact contactList[8];
 		int count;
 		int nextIndex;
 
@@ -14,4 +16,8 @@ class PhoneBook
 		void addContact();
 		void searchContact() const;
 		void displayContact(int index) const;
-}
+
+		Contact& getContact(int index);
+};
+
+#endif

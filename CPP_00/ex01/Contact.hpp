@@ -2,25 +2,30 @@
 # define CONTACT_HPP
 
 # include <string>
+#include <iostream>
+#include <cstdlib>
+
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define BLUE    "\033[34m"
+# define RESET   "\033[0m"
 
 class Contact
 {
 	public:
-		void setContact(void);
+		bool setContact(void);
 
-		void setFirstName(void);
-		void setLastName(void);
-		void setNickName(void);
-		void setPhoneNumber(void);
-		void setDarkestSecret(void);
+		bool setFirstName(void);
+		bool setLastName(void);
+		bool setNickName(void);
+		bool setPhoneNumber(void);
+		bool setDarkestSecret(void);
 
-		void getFullInfo(void);
-
-		const std::string& getFirstName(void);
-		const std::string& getLastName(void);
-		const std::string& getNickName(void);
-		const std::string& getPhoneNumber(void);
-		const std::string& getDarkestSecret(void);
+		const std::string& getFirstName(void) const;
+		const std::string& getLastName(void) const;
+		const std::string& getNickName(void) const;
+		const std::string& getPhoneNumber(void) const;
+		const std::string& getDarkestSecret(void) const;
 
 	private:
 		std::string		_firstName;
