@@ -57,7 +57,7 @@ void PhoneBook::displayContact(int index) const
 {
 	if (index < 0 || index >= this->count)
 	{
-		std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Invalid index\n";
+		std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Invalid index\n";
 		return;
 	}
 

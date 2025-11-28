@@ -18,7 +18,7 @@ bool Contact::setFirstName()
 		}
 		if (str.empty())
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, First Name can't be blank\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, First Name can't be blank\n";
 			continue;
 		}
 		for (size_t i = 0; i < str.length(); i++)
@@ -31,7 +31,7 @@ bool Contact::setFirstName()
 		}
 		if (!onlyAlpha)
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, First Name must contain only alphabetic characters\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, First Name must contain only alphabetic characters\n";
 			onlyAlpha = true;
 			continue;
 		}
@@ -57,7 +57,7 @@ bool Contact::setLastName()
 		}
 		if (str.empty())
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Last Name can't be blank\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Last Name can't be blank\n";
 			continue;
 		}
 		for (size_t i = 0; i < str.length(); i++)
@@ -70,7 +70,7 @@ bool Contact::setLastName()
 		}
 		if (!onlyAlpha)
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Last Name must contain only alphabetic characters\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Last Name must contain only alphabetic characters\n";
 			onlyAlpha = true;
 			continue;
 		}
@@ -95,7 +95,7 @@ bool Contact::setNickName()
 		}
 		if (str.empty())
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Nick Name can't be blank\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Nick Name can't be blank\n";
 			continue;
 		}
 		this->_nickName = str;
@@ -120,7 +120,7 @@ bool Contact::setPhoneNumber()
 		}
 		if (str.empty())
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Phone number can't be blank\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Phone number can't be blank\n";
 			continue;
 		}
 		for (size_t i = 0; i < str.length(); i++)
@@ -134,7 +134,7 @@ bool Contact::setPhoneNumber()
 		if (!onlyDigit)
 		{
 			onlyDigit = true;
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Phone number must contain only numeric characters\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Phone number must contain only numeric characters\n";
 			continue;;
 		}
 		this->_phoneNumber = str;
@@ -158,7 +158,7 @@ bool Contact::setDarkestSecret()
 		}
 		if (str.empty())
 		{
-			std::cout << "\033[33mPhoneBook ~>\033[0m Ops, Darkest Secret can't be blank\n";
+			std::cout << "\033[33mPhoneBook ~>\033[0m Whoops, Darkest Secret can't be blank\n";
 			continue;
 		}
 		this->_darkestSecret = str;
