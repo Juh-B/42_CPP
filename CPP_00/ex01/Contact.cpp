@@ -1,5 +1,15 @@
-// #include <iostream>
-// #include <cstdlib>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/04 17:09:48 by jcosta-b          #+#    #+#             */
+/*   Updated: 2025/12/04 17:18:00 by jcosta-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 bool Contact::setFirstName()
@@ -168,13 +178,13 @@ bool Contact::setDarkestSecret()
 }
 
 bool Contact::setContact() {
-    if (!setFirstName()) return false;
-    if (!setLastName()) return false;
-    if (!setNickName()) return false;
-    if (!setPhoneNumber()) return false;
-    if (!setDarkestSecret()) return false;
+	if (!setFirstName()) return false;
+	if (!setLastName()) return false;
+	if (!setNickName()) return false;
+	if (!setPhoneNumber()) return false;
+	if (!setDarkestSecret()) return false;
 
-    std::cout << "\033[32mPhoneBook ~>\033[0m New contact added!\n";
+	std::cout << "\033[32mPhoneBook ~>\033[0m New contact added!\n";
 	return (true);
 }
 

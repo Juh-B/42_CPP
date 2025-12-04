@@ -1,4 +1,15 @@
-// #include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/04 17:09:48 by jcosta-b          #+#    #+#             */
+/*   Updated: 2025/12/04 17:12:11 by jcosta-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
@@ -19,7 +30,7 @@ void	PhoneBook::addContact(void)
 	if (!newContact.setContact())
 	{
 		std::cout << "\033[33mPhoneBook ~>\033[0m Contact addition cancelled.\n";
-        return;
+		return;
 	}
 	this->contactList[this->nextIndex] = newContact;
 
@@ -43,11 +54,11 @@ void PhoneBook::searchContact() const
 
 	for (int i = 0; i < this->count; i++)
 	{
-		std::cout << "|" << "         "
-				  << GREEN << i << RESET << "|"
-		          << formatField(this->contactList[i].getFirstName()) << "|"
-		          << formatField(this->contactList[i].getLastName())  << "|"
-		          << formatField(this->contactList[i].getNickName())  << "|\n";
+		std::cout	<< "|" << "         "
+					<< GREEN << i << RESET << "|"
+					<< formatField(this->contactList[i].getFirstName()) << "|"
+					<< formatField(this->contactList[i].getLastName())  << "|"
+					<< formatField(this->contactList[i].getNickName())  << "|\n";
 	}
 
 	std::cout << "---------------------------------------------\n\n";
