@@ -1,10 +1,10 @@
-NAME = zombieBrainz
+NAME = zombieBrain
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 ASANFLAGS = -fsanitize=address -g
 
-SRC = ./Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
+SRC = ./main.cpp
 
 OBJDIR = objs
 OBJ = $(SRC:.cpp=.o)
@@ -20,7 +20,7 @@ $(OBJDIR):
 
 $(NAME): $(addprefix $(OBJDIR)/, $(OBJ))
 	$(CC) $(CPPFLAGS) -o $(NAME) $(addprefix $(OBJDIR)/, $(OBJ))
-	@echo "$(GREEN)Zombie Brainz is Ready!$(RESET)"
+	@echo "$(GREEN)Zombie Brain is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)

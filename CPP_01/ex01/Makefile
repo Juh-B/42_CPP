@@ -1,4 +1,4 @@
-NAME = zombie_moar_brainz
+NAME = zombieMoarBrainz
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
