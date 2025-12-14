@@ -1,10 +1,10 @@
-NAME = brain
+NAME = harl
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 ASANFLAGS = -fsanitize=address -g
 
-SRC = ./main.cpp
+SRC = main.cpp Harl.cpp
 
 OBJDIR = objs
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
@@ -19,7 +19,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Brain is Ready!$(RESET)"
+	@echo "$(GREEN)Harl 2.0 is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)

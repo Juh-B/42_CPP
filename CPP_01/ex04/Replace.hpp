@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
-# include <string>
+#include <string>
 
-class Weapon;
-
-class HumanB
-{
-	public:
-		HumanB(const std::string& name);
-		~HumanB(void);
-
-		void	attack(void) const;
-		void	setWeapon(Weapon& weapon);
-
-	private:
-		std::string		_name;
-		Weapon*			_weapon;
-};
+bool replaceFile(const std::string& filename,
+                 const std::string& s1,
+                 const std::string& s2);
 
 #endif

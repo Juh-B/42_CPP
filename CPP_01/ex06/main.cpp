@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include "Harl.hpp"
 
-# include <string>
-
-class Weapon;
-
-class HumanB
+int main(int argc, char **argv)
 {
-	public:
-		HumanB(const std::string& name);
-		~HumanB(void);
+	Harl harl;
 
-		void	attack(void) const;
-		void	setWeapon(Weapon& weapon);
+	if (argc != 2)
+	{
+		std::cerr	<< "Usage: ./harlFilter <level>"
+					<< std::endl
+					<< "Level -> DEBUG | INFO | WARNING | ERROR"
+					<< std::endl;
+		return 1;
+	}
 
-	private:
-		std::string		_name;
-		Weapon*			_weapon;
-};
+	std::cout	<< "So... Harl is going to complain about..." << std::endl;
 
-#endif
+	harl.complain(argv[1]);
+
+	return 0;
+}

@@ -1,4 +1,4 @@
-NAME = zombieBrainz
+NAME = brainz
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -7,29 +7,32 @@ ASANFLAGS = -fsanitize=address -g
 SRC = ./Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
 OBJDIR = objs
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 
 GREEN = \033[1;32m
 YELLOW = \033[33m
 RESET = \033[0m
 
-all: $(OBJDIR) $(NAME)
+# ===================== RULES =====================
 
-$(OBJDIR):
-	@mkdir -p $(OBJDIR)
+all: $(NAME)
 
-$(NAME): $(addprefix $(OBJDIR)/, $(OBJ))
-	$(CC) $(CPPFLAGS) -o $(NAME) $(addprefix $(OBJDIR)/, $(OBJ))
-	@echo "$(GREEN)Zombie Brainz is Ready!$(RESET)"
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(GREEN)Braiiiinnnzzzz is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-leak: CPPFLAGS += $(ASANFLAGS)
-leak: fclean all
+# ===================== LEAK =====================
+
+leak: CFLAGS += $(ASANFLAGS)
+leak: fclean $(OBJ) $(NAME)
 	@echo "$(YELLOW)\nRunning with AddressSanitizer...$(RESET)"
 	@./$(NAME)
+
+# ===================== CLEAN =====================
 
 clean:
 	@rm -rf $(OBJDIR)
@@ -37,8 +40,9 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f test test.replace
 	@echo "$(GREEN)Full clean done!$(RESET)"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re leak

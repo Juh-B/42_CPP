@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include <iostream>
+#include "Replace.hpp"
 
-# include <string>
+bool replaceFile(const std::string& filename,
+				 const std::string& s1,
+				 const std::string& s2);
 
-class Weapon;
-
-class HumanB
+int main(int argc, char **argv)
 {
-	public:
-		HumanB(const std::string& name);
-		~HumanB(void);
+	if (argc != 4)
+	{
+		std::cerr << "Usage: ./replace <filename> s1 s2" << std::endl;
+		return 1;
+	}
 
-		void	attack(void) const;
-		void	setWeapon(Weapon& weapon);
+	if (!replaceFile(argv[1], argv[2], argv[3]))
+	{
+		std::cerr << "Error!" << std::endl;
+		return 1;
+	}
 
-	private:
-		std::string		_name;
-		Weapon*			_weapon;
-};
-
-#endif
+	return 0;
+}

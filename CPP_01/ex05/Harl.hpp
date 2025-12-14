@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
+# include <iostream>
 # include <string>
 
-class Weapon;
-
-class HumanB
+class Harl
 {
 	public:
-		HumanB(const std::string& name);
-		~HumanB(void);
-
-		void	attack(void) const;
-		void	setWeapon(Weapon& weapon);
+		Harl(void);
+		~Harl(void);
+		void complain(std::string level);
 
 	private:
-		std::string		_name;
-		Weapon*			_weapon;
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 };
 
 #endif

@@ -20,7 +20,7 @@ int main()
 
 	Zombie *zombieH = zombieHorde(5, "Zumbileu");
 
-	std::cout << std::endl
+	std::cout << std::endl;
 	for (int i = 0; i < 5; i++)
 		zombieH[i].announce();
 

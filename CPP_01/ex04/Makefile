@@ -1,10 +1,10 @@
-NAME = brain
+NAME = replace
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 ASANFLAGS = -fsanitize=address -g
 
-SRC = ./main.cpp
+SRC = main.cpp Replace.cpp
 
 OBJDIR = objs
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
@@ -19,7 +19,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Brain is Ready!$(RESET)"
+	@echo "$(GREEN)Replace is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
@@ -30,7 +30,8 @@ $(OBJDIR)/%.o: %.cpp
 leak: CFLAGS += $(ASANFLAGS)
 leak: fclean $(OBJ) $(NAME)
 	@echo "$(YELLOW)\nRunning with AddressSanitizer...$(RESET)"
-	@./$(NAME)
+	@echo "ola lindo mundo" > test
+	@./$(NAME) test lindo adoravel
 
 # ===================== CLEAN =====================
 
