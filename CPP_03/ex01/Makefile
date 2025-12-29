@@ -1,10 +1,10 @@
-NAME = ClapTrap
+NAME = ScavTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ASANFLAGS = -fsanitize=address -g
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJDIR = objs
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
@@ -19,7 +19,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)ClapTrap is Ready!$(RESET)"
+	@echo "$(GREEN)ScavTrap is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
