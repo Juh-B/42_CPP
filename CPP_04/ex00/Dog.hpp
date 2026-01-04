@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,38 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
 
-# define WHITE_B	"\033[1;37m"
-# define GREEN_B	"\033[1;32m"
-# define RED_B	"\033[1;31m"
-# define RED	"\033[31m"
-# define GREEN	"\033[32m"
-# define YELLOW	"\033[33m"
-# define RESET	"\033[0m"
-
-class ClapTrap
+class Dog : public Animal
 {
 	public:
-		ClapTrap(void);
-		ClapTrap(const std::string& name);
-		ClapTrap(const ClapTrap& other);
-		ClapTrap& operator=(const ClapTrap& other);
-		~ClapTrap(void);
+		Dog(void);
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
+		~Dog(void);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-
-	protected:
-		std::string _name;
-		int         _hitPoints;
-		int         _energyPoints;
-		int         _attackDamage;
+		void makeSound() const;
 };
 
 #endif

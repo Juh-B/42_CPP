@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
 # include <string>
@@ -24,24 +24,19 @@
 # define YELLOW	"\033[33m"
 # define RESET	"\033[0m"
 
-class ClapTrap
+class Animal
 {
 	public:
-		ClapTrap(void);
-		ClapTrap(const std::string& name);
-		ClapTrap(const ClapTrap& other);
-		ClapTrap& operator=(const ClapTrap& other);
-		~ClapTrap(void);
+		Animal(void);
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal(void);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		std::string getType() const;
+		virtual void makeSound() const;
 
 	protected:
-		std::string _name;
-		int         _hitPoints;
-		int         _energyPoints;
-		int         _attackDamage;
+		std::string type;
 };
 
 #endif
