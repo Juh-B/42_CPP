@@ -1,10 +1,11 @@
-NAME = moarBrainz
+NAME = Bureaucrat
 
 CC = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 VALFLAGS = valgrind --leak-check=full --show-leak-kinds=all
 
-SRC = ./Zombie.cpp zombieHorde.cpp main.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp Intern.cpp
 
 OBJDIR = objs
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
@@ -19,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Moar Brainz is Ready!$(RESET)"
+	@echo "$(GREEN)Bureaucrat is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
@@ -40,6 +41,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@rm -f test test.replace
+	@rm -f garden_shrubbery
 	@echo "$(GREEN)Full clean done!$(RESET)"
 
 re: fclean all

@@ -2,7 +2,7 @@ NAME = DiamondTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wno-shadow
-ASANFLAGS = -fsanitize=address -g
+VALFLAGS = valgrind --leak-check=full --show-leak-kinds=all
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
@@ -25,12 +25,11 @@ $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# ===================== LEAK =====================
+# ===================== VALGRIND =====================
 
-leak: CFLAGS += $(ASANFLAGS)
-leak: fclean $(OBJ) $(NAME)
-	@echo "$(YELLOW)\nRunning with AddressSanitizer...$(RESET)"
-	@./$(NAME)
+leak: re
+	@echo "$(YELLOW)\nRunning Valgrind...$(RESET)"
+	@$(VALFLAGS) ./$(NAME)
 
 # ===================== CLEAN =====================
 

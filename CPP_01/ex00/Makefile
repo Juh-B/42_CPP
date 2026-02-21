@@ -2,7 +2,7 @@ NAME = brainz
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-ASANFLAGS = -fsanitize=address -g
+VALFLAGS = valgrind --leak-check=full --show-leak-kinds=all
 
 SRC = ./Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
 
@@ -25,12 +25,11 @@ $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# ===================== LEAK =====================
+# ===================== VALGRIND =====================
 
-leak: CFLAGS += $(ASANFLAGS)
-leak: fclean $(OBJ) $(NAME)
-	@echo "$(YELLOW)\nRunning with AddressSanitizer...$(RESET)"
-	@./$(NAME)
+leak: re
+	@echo "$(YELLOW)\nRunning Valgrind...$(RESET)"
+	@$(VALFLAGS) ./$(NAME)
 
 # ===================== CLEAN =====================
 
