@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/26 09:32:35 by jcosta-b          #+#    #+#             */
-/*   Updated: 2025/12/26 12:12:58 by jcosta-b         ###   ########.fr       */
+/*   Created: 2026/01/10 18:33:32 by jcosta-b          #+#    #+#             */
+/*   Updated: 2026/01/11 14:44:02 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 #define SIZE 4
 

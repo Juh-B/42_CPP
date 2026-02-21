@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcosta-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jcosta-b <jcosta-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 09:24:32 by jcosta-b          #+#    #+#             */
-/*   Updated: 2025/12/24 12:22:56 by jcosta-b         ###   ########.fr       */
+/*   Created: 2026/01/10 18:19:08 by jcosta-b          #+#    #+#             */
+/*   Updated: 2026/01/11 13:46:00 by jcosta-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
