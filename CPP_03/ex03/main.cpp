@@ -39,7 +39,7 @@ int main(void)
 	a.guardGate();
 
 	std::cout << std::endl;
-	
+
 	a.whoAmI();
 
 	std::cout << std::endl << GREEN
