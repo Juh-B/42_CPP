@@ -29,7 +29,7 @@ $(OBJDIR)/%.o: %.cpp
 
 leak: re
 	@echo "$(YELLOW)\nRunning Valgrind...$(RESET)"
-	@$(VALFLAGS) ./$(NAME) "42"
+	@$(VALFLAGS) ./$(NAME)
 
 # ===================== CLEAN =====================
 

@@ -1,10 +1,10 @@
-NAME = serializer
+NAME = btc
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 VALFLAGS = valgrind --leak-check=full --show-leak-kinds=all
 
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJDIR = objs
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
@@ -19,7 +19,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Serializer is Ready!$(RESET)"
+	@echo "$(GREEN)BitcoinExchange is Ready!$(RESET)"
 
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
@@ -29,7 +29,7 @@ $(OBJDIR)/%.o: %.cpp
 
 leak: re
 	@echo "$(YELLOW)\nRunning Valgrind...$(RESET)"
-	@$(VALFLAGS) ./$(NAME)
+	@$(VALFLAGS) ./$(NAME) input.txt
 
 # ===================== CLEAN =====================
 
@@ -39,7 +39,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f test test.replace
 	@echo "$(GREEN)Full clean done!$(RESET)"
 
 re: fclean all
